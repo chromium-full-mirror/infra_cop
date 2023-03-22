@@ -1,0 +1,23 @@
+name: base
+
+# Mapping with pinned `(image, tag) => digest` resolutions.
+#
+# To add a new pin:
+#   $ cloudbuildhelper pins-add pins.yaml "<image>:<tag>""
+#
+# To update all pins:
+#   $ cloudbuildhelper pins-update pins.yaml
+imagepins: pins.yaml
+
+# Build using "linux" Cloud Build configuration by default.
+cloudbuild:
+  builder: linux
+
+infra:
+  prod:
+    storage: gs://chromeos-cop/
+    registry: gcr.io/chromeos-cop
+    cloudbuild:
+      linux:
+        project: chromeos-cop
+        executable: gcr.io/cloud-builders/docker:18.09.6
