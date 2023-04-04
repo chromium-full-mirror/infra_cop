@@ -15,7 +15,7 @@ cloudbuild:
 
 infra:
   prod:
-    storage: gs://chromeos-cop/
+    storage: gs://chromeos-cop-cloudbuildhelper/
     registry: gcr.io/chromeos-cop
     cloudbuild:
       linux:
