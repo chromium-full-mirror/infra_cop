@@ -1,0 +1,4 @@
+name: cop
+extends: ../base.yaml
+
+dockerfile: ../../docker/cop/Dockerfile
