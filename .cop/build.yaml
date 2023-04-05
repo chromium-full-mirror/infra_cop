@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/${PROJECT_ID}/cop'
+  id: 'cloudbuildhelper'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+      set -ve
+      for image in $(find build/images/ -name '*.yaml'); do
+        echo Testing $image
+        cloudbuildhelper localbuild $image
+      done
