@@ -9,6 +9,9 @@ name: base
 #   $ cloudbuildhelper pins-update pins.yaml
 imagepins: pins.yaml
 
+# All the images from this repo are considered nondeterministic.
+deterministic: false
+
 # Build using "linux" Cloud Build configuration by default.
 cloudbuild:
   builder: linux
