@@ -15,6 +15,9 @@
 # an explanation why it is frozen.
 
 pins:
+- image: docker.io/library/archlinux
+  tag: latest
+  digest: sha256:95024c8e97d6ef47c27960263a5c314196feef40a20b1a0c3f0419920492fb0f
 - image: docker.io/library/debian
   tag: bookworm-slim
   digest: sha256:e54d36fb429ae2f8e102d5903e60aeb689bb26056ca2930f9d622ced90fbe730
