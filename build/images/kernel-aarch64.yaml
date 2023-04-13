@@ -1,0 +1,4 @@
+name: kcam
+extends: ../base.yaml
+
+dockerfile: ../../docker/kernel-aarch64/Dockerfile
