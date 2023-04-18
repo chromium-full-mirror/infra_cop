@@ -2,3 +2,9 @@ name: adhd-archlinux-builder
 extends: ../base.yaml
 
 dockerfile: ../../docker/adhd-archlinux-builder/Dockerfile
+
+infra:
+  prod:
+    cloudbuild:
+      linux:
+        timeout: "1800s"
