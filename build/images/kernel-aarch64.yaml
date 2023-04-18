@@ -1,4 +1,4 @@
-name: kcam
+name: kernel-aarch64
 extends: ../base.yaml
 
 dockerfile: ../../docker/kernel-aarch64/Dockerfile
