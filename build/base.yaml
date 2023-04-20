@@ -24,3 +24,4 @@ infra:
       linux:
         project: chromeos-cop
         executable: gcr.io/cloud-builders/docker:18.09.6
+        timeout: "1800s"
