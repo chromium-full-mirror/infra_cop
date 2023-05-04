@@ -1,0 +1,4 @@
+name: kernel
+extends: ../base.yaml
+
+dockerfile: ../../docker/kernel/Dockerfile
