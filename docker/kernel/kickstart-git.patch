@@ -1,27 +1,40 @@
 diff --git a/cop-o-matic.py b/cop-o-matic.py
-index 96eacb0..d9791c3 100755
+index 96eacb0..b0eae7e 100755
 --- a/cop-o-matic.py
 +++ b/cop-o-matic.py
-@@ -30,6 +30,11 @@ class Change:
-         self.current_revision = CurrentRevision(commit_message, name, email)
+@@ -31,6 +31,27 @@ class Change:
          self.url = lambda: hash
  
-+def kickstart_git():
-+    subprocess.check_output(["wget", "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/clone.bundle", "-O", "/tmp/clone.bundle"])
-+    subprocess.check_output(["git", "remote", "add", "bundle", "/tmp/clone.bundle"])
-+    subprocess.check_output(["git", "fetch", "bundle"])
-+
  
++def kickstart_git():
++    try:
++        subprocess.check_call(
++            [
++                "wget",
++                "-q",
++                "https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/clone.bundle",
++                "-O",
++                "/tmp/clone.bundle",
++            ],
++            stdout=subprocess.DEVNULL,
++        )
++        subprocess.check_call(
++            ["git", "remote", "add", "bundle", "/tmp/clone.bundle"],
++            stdout=subprocess.DEVNULL,
++        )
++        subprocess.check_call(["git", "fetch", "bundle"], stdout=subprocess.DEVNULL)
++    except:
++        print("Unable to kickstart the kernel git repo... it might take longer than expected.")
++
++
  def do_review(project, change, verbose):
      c = change
-@@ -59,6 +64,11 @@ def do_review(project, change, verbose):
+     rev = Reviewer(verbose=verbose)
+@@ -59,6 +80,8 @@ def do_review(project, change, verbose):
          print("Reviewer not found")
          return 0
  
-+    try:
-+        kickstart_git()
-+    except:
-+        pass
++    kickstart_git()
 +
      reviewer.gerrit_patch = c.patch
      reviewer.change = c
