@@ -17,7 +17,7 @@
 pins:
 - image: docker.io/library/archlinux
   tag: latest
-  digest: sha256:b29dab0d5f362cfe2ed4662c46f27855681d56fb548fd2f6d927fd573131178a
+  digest: sha256:a29547d0d844b7393a3d76dbaa3fdee4b1bdb8423fb0f114877737fda1cf9c41
 - image: docker.io/library/debian
   tag: bookworm-slim
   digest: sha256:050f00e86cc4d928b21de66096126fac52c2ea47885c232932b2e4c00f0c116d
