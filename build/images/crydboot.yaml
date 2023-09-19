@@ -1,0 +1,4 @@
+name: crdyboot
+extends: ../base.yaml
+
+dockerfile: ../../docker/crdyboot/Dockerfile
