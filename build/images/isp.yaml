@@ -1,0 +1,4 @@
+name: isp
+extends: ../base.yaml
+
+dockerfile: ../../docker/isp/Dockerfile
