@@ -3,7 +3,8 @@
 # found in the LICENSE file.
 
 FROM archlinux as base
-RUN pacman -Sy archlinux-keyring --noconfirm --cachedir=/paccache \
+RUN pacman-key --init \
+  && pacman -Sy archlinux-keyring --noconfirm --cachedir=/paccache \
   && pacman -Su --needed --noconfirm --cachedir=/paccache \
   base-devel \
   bazel \
