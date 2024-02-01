@@ -20,7 +20,7 @@ pins:
   digest: sha256:fed6efe803e79d94544f93607e4afec1056cfd9bee5744c965eec0944624d81f
 - image: docker.io/library/debian
   tag: bookworm-slim
-  digest: sha256:f4a83aa865a2b4a064ff142aa91c713180df9fcb86ce676b5de2981029379c37
+  digest: sha256:7802002798b0e351323ed2357ae6dc5a8c4d0a05a57e7f4d8f97136151d3d603
 - image: docker.io/library/debian
   tag: trixie-slim
-  digest: sha256:5bbdd760fb1bb58a1b0f93a9f26d3f02d9a9dc323c5ca6283ef45fd35845161d
+  digest: sha256:35d1e866f1465d7cce04156f6628d79e6a2f4ba9a2e54e0d5a418487a46e387d
