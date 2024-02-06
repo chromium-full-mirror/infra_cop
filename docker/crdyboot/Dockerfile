@@ -14,6 +14,7 @@ RUN apt-get update && \
     gdisk \
     git \
     gnupg2 \
+    libnss3-dev \
     libssl-dev \
     make \
     ovmf \
