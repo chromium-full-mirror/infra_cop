@@ -46,12 +46,12 @@ ENV PATH="/cargo/bin:${PATH}"
 # components.
 #
 # This matches the version in crdyboot's rust-toolchain.toml.
-ENV RUST_VERSION=nightly-2023-04-16
+ENV RUST_VERSION=nightly-2023-08-18
 RUN rustup install "${RUST_VERSION}"
 RUN rustup target add --toolchain "${RUST_VERSION}" \
     i686-unknown-uefi \
     x86_64-unknown-uefi
-RUN rustup component add --toolchain "${RUST_VERSION}" miri
+RUN rustup component add --toolchain "${RUST_VERSION}" miri rust-src
 
 # Install cargo-deny into the cargo bin dir.
 RUN curl --fail --location --output /tmp/cargo-deny.tar.gz \
