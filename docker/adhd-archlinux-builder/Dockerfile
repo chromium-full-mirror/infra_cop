@@ -7,7 +7,6 @@ RUN pacman-key --init \
   && pacman -Sy archlinux-keyring --noconfirm --cachedir=/paccache \
   && pacman -Su --needed --noconfirm --cachedir=/paccache \
   base-devel \
-  bazel \
   git \
   go \
   vim \
@@ -24,6 +23,9 @@ RUN pacman-key --init \
   protobuf \
   rsync \
   && rm -rf /paccache
+RUN curl -L https://github.com/bazelbuild/bazelisk/releases/download/v1.19.0/bazelisk-linux-amd64 -o /usr/bin/bazel \
+  && echo 'd28b588ac0916abd6bf02defb5433f6eddf7cba35ffa808eabb65a44aab226f7 /usr/bin/bazel' | sha256sum -c - \
+  && chmod 755 /usr/bin/bazel
 
 FROM archlinux as kythe
 RUN \
