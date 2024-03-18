@@ -14,7 +14,6 @@ RUN pacman-key --init \
   sbc \
   speexdsp \
   clang \
-  ladspa \
   gtest \
   rust \
   python \
