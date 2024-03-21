@@ -54,9 +54,10 @@ RUN rustup target add --toolchain "${RUST_VERSION}" \
 RUN rustup component add --toolchain "${RUST_VERSION}" miri rust-src
 
 # Install cargo-deny into the cargo bin dir.
+ENV CARGO_DENY_VERSION="0.14.18"
 RUN curl --fail --location --output /tmp/cargo-deny.tar.gz \
-    https://github.com/EmbarkStudios/cargo-deny/releases/download/0.14.2/cargo-deny-0.14.2-x86_64-unknown-linux-musl.tar.gz
-ENV CDENY_HASH=5a4913ae3ce1298bd96d29b794ed245b0394f5ec0e2802f19d41fedc70bb5c3c
+    "https://github.com/EmbarkStudios/cargo-deny/releases/download/${CARGO_DENY_VERSION}/cargo-deny-${CARGO_DENY_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+ENV CDENY_HASH=b2edd818de5169128e23480bfece4c70ae9d4402e5a1748ae548fc29347b82b3
 RUN echo "${CDENY_HASH} /tmp/cargo-deny.tar.gz" | sha256sum --check
-RUN tar -C /usr/bin -xvf /tmp/cargo-deny.tar.gz \
-    cargo-deny-0.14.2-x86_64-unknown-linux-musl/cargo-deny
+RUN tar --strip-components=1 -C /cargo/bin -xvf /tmp/cargo-deny.tar.gz \
+    "cargo-deny-${CARGO_DENY_VERSION}-x86_64-unknown-linux-musl/cargo-deny"
