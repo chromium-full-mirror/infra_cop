@@ -23,4 +23,4 @@ pins:
   digest: sha256:ccb33c3ac5b02588fc1d9e4fc09b952e433d0c54d8618d0ee1afadf1f3cf2455
 - image: docker.io/library/debian
   tag: trixie-slim
-  digest: sha256:9c38e155a08c5ca9ad5212bfdc62efa539d5ac0fbe31832d704378d315e2549e
+  digest: sha256:09dd559ab7f61df3bfb5daa5e1ec6066e87c9b0baee5b2e6dc932e194d303155
