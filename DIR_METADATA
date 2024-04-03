@@ -8,5 +8,5 @@
 
 team_email: "chromeos-camera-kernel@google.com"
 buganizer {
-  component_id: 1481072  # ChromeOS > Platform > Technologies > Camera > Kernel
+  component_id: 1551765  # ChromeOS > Infra > Contrib > CoP
 }
