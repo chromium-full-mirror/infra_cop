@@ -39,9 +39,6 @@ RUN cd adhd && bazel build --nobuild --config=local-clang //...
 
 FROM base as builder
 
-# TODO(b/277140711): Use build_kzip.bash from within the adhd git repository.
-COPY build_kzip.bash compdb_fixup.py /
-
 COPY bazelrc /etc/bazel.bazelrc
 COPY --from=kythe /opt/kythe /opt/kythe
 RUN echo 'export PATH=/root/.cargo/bin:$PATH' >> /root/.bashrc
