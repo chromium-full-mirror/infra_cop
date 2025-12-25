@@ -8,6 +8,7 @@ RUN mkdir /paccache \
   && pacman -Sy archlinux-keyring --noconfirm --cachedir=/paccache \
   && pacman -Su --needed --noconfirm --cachedir=/paccache \
   base-devel \
+  docker \
   git \
   go \
   vim \
