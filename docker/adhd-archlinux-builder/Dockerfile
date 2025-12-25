@@ -2,8 +2,9 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-FROM archlinux as base
-RUN pacman-key --init \
+FROM archlinux AS base
+RUN mkdir /paccache \
+  && pacman-key --init \
   && pacman -Sy archlinux-keyring --noconfirm --cachedir=/paccache \
   && pacman -Su --needed --noconfirm --cachedir=/paccache \
   base-devel \
@@ -26,18 +27,18 @@ RUN curl -L https://github.com/bazelbuild/bazelisk/releases/download/v1.19.0/baz
   && echo 'd28b588ac0916abd6bf02defb5433f6eddf7cba35ffa808eabb65a44aab226f7 /usr/bin/bazel' | sha256sum -c - \
   && chmod 755 /usr/bin/bazel
 
-FROM archlinux as kythe
+FROM archlinux AS kythe
 RUN \
   mkdir -p /opt/kythe \
   && curl -OL https://github.com/kythe/kythe/releases/download/v0.0.60/kythe-v0.0.60.tar.gz \
   && echo '8fe1aeb8f514306f26e233077e1156dbe353ef2afa72c37866bebb680b52a10d	kythe-v0.0.60.tar.gz' | sha256sum -c - \
   && tar --strip-components=1 --no-same-owner --directory=/opt/kythe -xzf kythe-v0.0.60.tar.gz
 
-FROM base as bazel-cache
+FROM base AS bazel-cache
 RUN git clone https://chromium.googlesource.com/chromiumos/third_party/adhd
 RUN cd adhd && bazel build --nobuild --config=local-clang //...
 
-FROM base as builder
+FROM base AS builder
 
 COPY bazelrc /etc/bazel.bazelrc
 COPY --from=kythe /opt/kythe /opt/kythe
