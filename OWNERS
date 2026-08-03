@@ -1,3 +1,5 @@
 include chromiumos/owners:v1:/infra/OWNERS.cop
 
+per-file build/pins.yaml=chromeos-images-pins-roller@chops-service-accounts.iam.gserviceaccount.com
+# TODO(b/441827278): Remove this once the migration is complete.
 per-file build/pins.yaml=images-pins-roller@chops-service-accounts.iam.gserviceaccount.com
