@@ -31,9 +31,9 @@ RUN curl -L https://github.com/bazelbuild/bazelisk/releases/download/v1.19.0/baz
 FROM archlinux AS kythe
 RUN \
   mkdir -p /opt/kythe \
-  && curl -OL https://github.com/kythe/kythe/releases/download/v0.0.60/kythe-v0.0.60.tar.gz \
-  && echo '8fe1aeb8f514306f26e233077e1156dbe353ef2afa72c37866bebb680b52a10d	kythe-v0.0.60.tar.gz' | sha256sum -c - \
-  && tar --strip-components=1 --no-same-owner --directory=/opt/kythe -xzf kythe-v0.0.60.tar.gz
+  && curl -OL https://github.com/kythe/kythe/releases/download/v0.0.76/kythe-v0.0.76.tar.gz \
+  && echo 'eea430f7563db805c99e4d1a427ca60d7aef01cec7669986529cfe2c26296356	kythe-v0.0.76.tar.gz' | sha256sum -c - \
+  && tar --strip-components=1 --no-same-owner --directory=/opt/kythe -xzf kythe-v0.0.76.tar.gz
 
 FROM base AS builder
 
